@@ -166,17 +166,15 @@ def main():
     splits = (input('Enter minumum sample splits for decision tree or hit ENTER for 8: ') or 8)
     minSplits = int(splits)
 
-    # splitEval = input('Enter [1] if you would like to use entropy OR [2] to use gini index on data: ')
-    # if splitEval == '1':
-    #     splitEval = 'entropy'
-    # elif splitEval == '2':
-    #     splitEval = 'gini'
-    # else :
-    #     print('\n')
-    #     print('***Invalid Input***')
-    #     main()
-
-    splitEval = 'entropy'
+    splitEval = input('Enter [1] if you would like to use entropy OR [2] to use gini index on data: ')
+    if splitEval == '1':
+        splitEval = 'entropy'
+    elif splitEval == '2':
+        splitEval = 'gini'
+    else :
+        print('\n')
+        print('***Invalid Input***')
+        main()
 
     decision_tree = dt(maxDepth, minSplits, splitEval)
     sk_dt_model = DecisionTreeClassifier(criterion = splitEval, max_depth = maxDepth, min_samples_split = minSplits)
